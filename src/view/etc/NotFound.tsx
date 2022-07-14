@@ -1,9 +1,20 @@
-import { Box } from "grommet"
+import { Anchor, Heading, Page, PageContent } from "grommet";
+import { useNavigate } from "react-router-dom";
 
+/**
+ * When a page can't be found.
+ */
 const NotFound = () => {
-    return <Box pad="large">
-        <p>that page could not be found!</p>
-    </Box>
-}
+    const nav = useNavigate();
 
-export default NotFound
+    return (
+        <Page kind="wide">
+            <PageContent>
+                <Heading level="1">That page could not be found.</Heading>
+                <Anchor onClick={() => nav(-1)}>back to safety.</Anchor>
+            </PageContent>
+        </Page>
+    );
+};
+
+export default NotFound;
